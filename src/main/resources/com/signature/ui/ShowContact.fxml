@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.Tooltip?>
+<VBox fx:id="rootNode" maxWidth="1000.0" minWidth="500.0" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.signature.ui.ShowContactController">
+    <HBox alignment="CENTER_RIGHT" maxHeight="1000.0" maxWidth="1000.0" minHeight="50.0" minWidth="500.0" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: white;">
+        <JFXButton fx:id="back" contentDisplay="GRAPHIC_ONLY" onAction="#handleBackOperation" style="-fx-background-color: white; -fx-background-radius: 1em;" visible="false">
+        <graphic>
+            <SVGPath content="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" fill="#4885ed" />
+        </graphic>
+            <tooltip>
+                <Tooltip text="Back"/>
+            </tooltip>
+        <HBox.margin>
+            <Insets left="2.0" />
+        </HBox.margin>
+        </JFXButton>
+        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="840.0" spacing="20.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+            <JFXButton fx:id="favourite" contentDisplay="GRAPHIC_ONLY" onAction="#handleSetFavourite" style="-fx-background-color: white; -fx-background-radius: 1em;">
+                <graphic>
+                    <SVGPath content="M 24.75 4.5 C 22.140625 4.5 19.636719 5.714844 18 7.628906 C 16.363281 5.714844 13.859375 4.5 11.25 4.5 C 6.621094 4.5 3 8.121094 3 12.75 C 3 18.414062 8.101562 23.039062 15.824219 30.050781 L 18 32.023438 L 20.175781 30.050781 C 27.898438 23.039062 33 18.414062 33 12.75 C 33 8.121094 29.378906 4.5 24.75 4.5 Z M 18.15625 27.832031 L 18 27.976562 L 17.84375 27.832031 C 10.710938 21.359375 6 17.085938 6 12.75 C 6 9.757812 8.257812 7.5 11.25 7.5 C 13.558594 7.5 15.808594 8.992188 16.597656 11.039062 L 19.394531 11.039062 C 20.191406 8.992188 22.441406 7.5 24.75 7.5 C 27.742188 7.5 30 9.757812 30 12.75 C 30 17.085938 25.289062 21.359375 18.15625 27.832031 Z M 18.15625 27.832031" fill="#4885ed" />
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Favourite"/>
+                </tooltip>
+            </JFXButton>
+        <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#handleEditContact" style="-fx-background-color: white; -fx-background-radius: 1em;">
+            <graphic>
+                <SVGPath content="M 4.5 25.875 L 4.5 31.5 L 10.125 31.5 L 26.722656 14.902344 L 21.097656 9.277344 Z M 31.058594 10.566406 C 31.640625 9.984375 31.640625 9.03125 31.058594 8.445312 L 27.554688 4.941406 C 26.96875 4.359375 26.015625 4.359375 25.433594 4.941406 L 22.6875 7.6875 L 28.3125 13.3125 Z M 31.058594 10.566406 " fill="#4885ed" />
+            </graphic>
+            <tooltip>
+                <Tooltip text="Edit"/>
+            </tooltip>
+        </JFXButton>
+        <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#handleDeleteContact" style="-fx-background-color: white; -fx-background-radius: 1em;">
+            <graphic>
+                <SVGPath content="M 9 28.5 C 9 30.15625 10.34375 31.5 12 31.5 L 24 31.5 C 25.65625 31.5 27 30.15625 27 28.5 L 27 10.5 L 9 10.5 Z M 28.5 6 L 23.25 6 L 21.75 4.5 L 14.25 4.5 L 12.75 6 L 7.5 6 L 7.5 9 L 28.5 9 Z M 28.5 6" fill="#db3236" />
+            </graphic>
+            <tooltip>
+                <Tooltip text="Delete"/>
+            </tooltip>
+            <HBox.margin>
+                <Insets right="10.0" />
+            </HBox.margin>
+        </JFXButton>
+        </HBox>
+    </HBox>
+    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" spacing="20.0" style="-fx-background-color: lightgray;">
+        <Circle fx:id="profile" fill="DODGERBLUE" radius="80.0" stroke="#3cba54" strokeType="INSIDE" strokeWidth="2.0" HBox.hgrow="NEVER">
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+        </Circle>
+        <Label fx:id="name" maxHeight="-Infinity" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" wrapText="true">
+            <font>
+                <Font name="Roboto Bold" size="30.0" />
+            </font>
+        </Label>
+    </HBox>
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1000.0" pannable="true" prefHeight="550.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+        <effect>
+            <Blend />
+        </effect>
+        <VBox fx:id="detailBox" maxWidth="998.0" minWidth="-Infinity" prefWidth="498.0" spacing="10.0">
+            <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
+                        <Image url="@../../../icons/ic_phone_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Phone" HBox.hgrow="NEVER">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="332.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="phoneNumber" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="324.0" text="Mobile: +918869975446">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="emailHB" alignment="CENTER" layoutX="10.0" layoutY="260.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_mail_outline_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Email">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="email" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="324.0" wrapText="true">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="addressHB" alignment="CENTER" layoutX="10.0" layoutY="260.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_location_on_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Address">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="address" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="324.0" wrapText="true">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="companyHB" alignment="CENTER" layoutX="10.0" layoutY="260.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_business_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Company">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="company" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="320.0">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="websiteHB" alignment="CENTER" layoutX="10.0" layoutY="240.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="498.0" spacing="2.0">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_language_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Website">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="website" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="324.0">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="dateHB" alignment="CENTER" layoutX="10.0" layoutY="260.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_insert_invitation_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Date">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="date" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="324.0">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="relationHB" alignment="CENTER" layoutX="10.0" layoutY="260.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_group_work_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Relation">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="relation" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="324.0">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="sipHB" alignment="CENTER" layoutX="10.0" layoutY="260.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_dialer_sip_black_24dp.png" />
+                    </ImageView>
+                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="SIP">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="sip" alignment="CENTER_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="324.0">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+            <HBox fx:id="notesHB" alignment="CENTER" layoutX="10.0" layoutY="260.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="498.0" spacing="2.0" VBox.vgrow="ALWAYS">
+                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="122.0" spacing="8.0">
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../icons/ic_subject_black_24dp.png" />
+                    </ImageView>
+                    <Label alignment="TOP_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Notes">
+                        <font>
+                            <Font name="Roboto Black" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="334.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                    <Label fx:id="notes" alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="324.0">
+                        <font>
+                            <Font name="Roboto" size="22.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

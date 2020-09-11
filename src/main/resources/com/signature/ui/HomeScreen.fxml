@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.signature.ui.Controller">
+   <center>
+      <VBox fx:id="mainPanel" alignment="TOP_CENTER" spacing="8.0" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <HBox alignment="CENTER" fillHeight="false" maxHeight="40.0" maxWidth="300.0" minHeight="40.0" minWidth="300.0" prefHeight="40.0" prefWidth="300.0" spacing="2.0" style="-fx-background-radius: 30px; -fx-background-color: whitesmoke;" HBox.hgrow="NEVER">
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+               <TextField fx:id="search" onKeyReleased="#performLiveSearch" prefHeight="32.0" prefWidth="260.0" promptText="Search Contact" style="-fx-background-color: TRANSPARENT; -fx-prompt-text-fill: gray; -fx-text-fill: black" HBox.hgrow="NEVER">
+                  <font>
+                     <Font name="Roboto" size="16.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </TextField>
+               <ImageView fx:id="searchButton" fitHeight="20.0" fitWidth="20.0" focusTraversable="true" onMouseClicked="#clearSearch" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" HBox.hgrow="NEVER">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+                  <Image url="@../../../icons/ic_search_black_18dp.png" />
+               </ImageView>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="450.0" HBox.hgrow="ALWAYS">
+               <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#showAddContact" prefHeight="60.0" prefWidth="60.0" HBox.hgrow="NEVER">
+                  <graphic>
+                     <SVGPath content="M38 26H26v12h-4V26H10v-4h12V10h4v12h12v4z" />
+                  </graphic>
+                  <tooltip>
+                     <Tooltip text="Add Contact" />
+                  </tooltip>
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin>
+               </JFXButton>
+               <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1190.0" layoutY="27.0" onAction="#handleFilterContact" prefHeight="60.0" prefWidth="60.0" HBox.hgrow="NEVER">
+                  <graphic>
+                     <SVGPath content="M 22.914062 0 L 1.128906 0 C 0.132812 0 -0.375 1.210938 0.328125 1.921875 L 9.011719 10.609375 L 9.011719 20.28125 C 9.011719 20.648438 9.191406 20.996094 9.492188 21.203125 L 13.25 23.832031 C 13.992188 24.359375 15.023438 23.832031 15.023438 22.914062 L 15.023438 10.609375 L 23.710938 1.921875 C 24.414062 1.21875 23.917969 0 22.914062 0 Z M 22.914062 0" />
+                  </graphic>
+                  <tooltip>
+                     <Tooltip text="Sort &amp;Filter" />
+                  </tooltip>
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin>
+               </JFXButton>
+               <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1190.0" layoutY="27.0" onAction="#openSetting" prefHeight="60.0" prefWidth="60.0" HBox.hgrow="NEVER">
+                  <graphic>
+                     <SVGPath content="M 29.144531 19.460938 C 29.203125 18.984375 29.25 18.496094 29.25 18 C 29.25 17.503906 29.203125 17.015625 29.144531 16.539062 L 32.316406 14.054688 C 32.601562 13.828125 32.683594 13.425781 32.496094 13.09375 L 29.496094 7.898438 C 29.308594 7.574219 28.921875 7.441406 28.582031 7.574219 L 24.847656 9.082031 C 24.074219 8.488281 23.226562 7.988281 22.3125 7.605469 L 21.75 3.628906 C 21.683594 3.277344 21.375 3 21 3 L 15 3 C 14.625 3 14.316406 3.277344 14.257812 3.628906 L 13.695312 7.605469 C 12.78125 7.988281 11.933594 8.484375 11.160156 9.082031 L 7.425781 7.574219 C 7.085938 7.449219 6.699219 7.574219 6.511719 7.898438 L 3.511719 13.09375 C 3.324219 13.417969 3.40625 13.824219 3.691406 14.054688 L 6.855469 16.539062 C 6.796875 17.015625 6.75 17.503906 6.75 18 C 6.75 18.496094 6.796875 18.984375 6.855469 19.460938 L 3.691406 21.945312 C 3.40625 22.171875 3.324219 22.574219 3.511719 22.90625 L 6.511719 28.101562 C 6.699219 28.425781 7.085938 28.558594 7.425781 28.425781 L 11.160156 26.917969 C 11.933594 27.511719 12.78125 28.011719 13.695312 28.394531 L 14.257812 32.371094 C 14.316406 32.722656 14.625 33 15 33 L 21 33 C 21.375 33 21.683594 32.722656 21.742188 32.371094 L 22.304688 28.394531 C 23.21875 28.011719 24.066406 27.515625 24.839844 26.917969 L 28.574219 28.425781 C 28.914062 28.550781 29.300781 28.425781 29.488281 28.101562 L 32.488281 22.90625 C 32.675781 22.582031 32.59375 22.175781 32.308594 21.945312 Z M 18 23.25 C 15.097656 23.25 12.75 20.902344 12.75 18 C 12.75 15.097656 15.097656 12.75 18 12.75 C 20.902344 12.75 23.25 15.097656 23.25 18 C 23.25 20.902344 20.902344 23.25 18 23.25 Z M 18 23.25" />
+                  </graphic>
+                  <tooltip>
+                     <Tooltip text="Settings" />
+                  </tooltip>
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin>
+               </JFXButton>
+            </HBox>
+         </HBox>
+         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+            <TableView fx:id="dataTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyReleased="#handleShowContact" onMouseClicked="#handleShowContactM" prefHeight="730.0" prefWidth="778.0" stylesheets="@TableStyle.css">
+               <columns>
+                  <TableColumn fx:id="profileColumn" editable="false" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" resizable="false" sortable="false" style="-fx-alignment: center" />
+                  <TableColumn fx:id="nameColumn" editable="false" minWidth="200.0" prefWidth="266.0" sortable="false" style="-fx-alignment: center-left" text="Name">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="firstName" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="emailColumn" editable="false" minWidth="300.0" prefWidth="308.0" sortable="false" style="-fx-alignment: center-left" text="Email">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="email" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="phoneColumn" editable="false" maxWidth="142.0" minWidth="142.0" prefWidth="142.0" resizable="false" sortable="false" style="-fx-alignment: center-left" text="Phone Number">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="phoneNumber" />
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </ScrollPane>
+      </VBox>
+   </center>
+   <right>
+      <VBox fx:id="messageNode" alignment="CENTER" prefWidth="500.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+         <ImageView fitHeight="522.0" fitWidth="930.0" pickOnBounds="true" preserveRatio="true">
+            <viewport>
+               <Rectangle2D height="600.0" minX="80.0" minY="240.0" width="500.0" />
+            </viewport>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+            <Image url="@../../../icons/NoSideBarLight.png" />
+         </ImageView>
+      </VBox>
+   </right>
+</BorderPane>
